@@ -1,0 +1,508 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>
+            CitiServe Assessment
+        </title>
+        
+        <link rel="stylesheet" type="text/css" href="jquery.jqplot.min.css" />
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 12px;
+            }
+
+            .container{
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                max-width: 1200px;
+                padding: 30px;
+                /* border: 1px solid blue; */
+            }
+
+            .table-container,
+            #chartdiv{
+                width: 100%;
+                padding: 0px 0px 50px 0px;
+            }
+
+            .table-container > div{
+                color: #DF982A;
+                font-size: 28px;
+                width: fit-content;
+                padding: 20px 0px;
+                
+            }
+
+            table{
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            td,th{
+                /* border: 1px solid black; */
+                padding: 10px;
+                text-align: left
+            }
+
+            tr:nth-child(even){
+                background: #fcfcfc;
+            }
+
+            thead > tr{
+                background: #696969!important;
+                color: white;
+            }
+
+            .dot > div{
+                width: 10px;
+                margin-left: auto;
+                margin-right: auto;
+                min-height: 10px;
+                border-radius: 50%;
+            }
+
+            .table-container > div > div{
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                float: right;
+                margin-top: 18px;
+                margin-left: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class='table-container'>
+                    <div> YIELD TABLE<div style="background:#DF982A"></div></div>
+                    <table>
+                            <thead>
+                                    <th></th>
+                                    <th>COMPANY</th>
+                                    <th>JAN</th>
+                                    <th>FEB</th>
+                                    <th>MAR</th>
+                                    <th>APR</th>
+                                    <th>MAY</th>
+                                    <th>JUN</th>
+                                    <th>JUL</th>
+                                    <th>AUG</th>
+                                    <th>SEP</th>
+                                    <th>OCT</th>
+                                    <th>NOV</th>
+                                    <th>DEC</th>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #ef4444;"></div>
+                                        </td>
+                                        <td class='name'>Diamond Bank</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #7a3b2e;"></div>
+                                        </td>
+                                        <td class='name'>GTBank</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #618685"></div>
+                                        </td>
+                                        <td class='name'>Lafarge</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #ada397;"></div>
+                                        </td>
+                                        <td class='name'>Chicken Republic</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #009f75;"></div>
+                                        </td>
+                                        <td class='name'>Total</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #622569;"></div>
+                                        </td>
+                                        <td class='name'>UBA Bank</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #b9936c;"></div>
+                                        </td>
+                                        <td class='name'>Fidelity Bank</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #314ba0;"></div>
+                                        </td>
+                                        <td class='name'>KFC</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #e3eaa7;"></div>
+                                        </td>
+                                        <td class='name'>MRS</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='dot'>
+                                            <div style="background: #eca1a6;"></div>
+                                        </td>
+                                        <td class='name'>Coca-Cola</td>
+                                        <td>400000</td>
+                                        <td>500000</td>
+                                        <td>2000000</td>
+                                        <td>1000000</td>
+                                        <td>1500000</td>
+                                        <td>600000</td>
+                                        <td>550000</td>
+                                        <td>730000</td>
+                                        <td>900000</td>
+                                        <td>1300000</td>
+                                        <td>2000000</td>
+                                        <td>1700000</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+            </div>
+            <div id="chartdiv" style="height:400px"></div>
+        </div>
+        <script language="javascript" type="text/javascript" src="jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="jquery.jqplot.min.js"></script>
+        <script>
+            function randNum() {
+                return ((Math.random() * 40000) / 2000).toFixed(2);
+                // return temp*10000;
+            }
+
+            $tds = $('td:not(.dot,.name)');
+            for($i=0; $i<$tds.length; $i++){
+                $tds.eq($i).text(randNum());
+            }
+
+            var d1 = [[0,0],[1,$tds.eq(0).text()], [2,$tds.eq(1).text()], [3,$tds.eq(2).text()],
+                [4,$tds.eq(3).text()], [5,$tds.eq(4).text()],[6,$tds.eq(5).text()],
+                [7,$tds.eq(6).text()], [8,$tds.eq(7).text()],[9,$tds.eq(8).text()],
+                [10,$tds.eq(9).text()], [11,$tds.eq(10).text()], [12,$tds.eq(11).text()]];
+
+            var d2 = [[0,0],[1,$tds.eq(12).text()], [2,$tds.eq(13).text()], [3,$tds.eq(14).text()],
+                [4,$tds.eq(15).text()], [5,$tds.eq(16).text()],[6,$tds.eq(17).text()],
+                [7,$tds.eq(18).text()], [8,$tds.eq(19).text()],[9,$tds.eq(20).text()],
+                [10,$tds.eq(21).text()], [11,$tds.eq(22).text()], [12,$tds.eq(23).text()]];
+
+            var d3 = [[0,0],[1,$tds.eq(24).text()],[2,$tds.eq(25).text()],[3,$tds.eq(26).text()],
+                [4,$tds.eq(27).text()],[5,$tds.eq(28).text()],[6,$tds.eq(29).text()],
+                [7,$tds.eq(30).text()],[8,$tds.eq(31).text()],[9,$tds.eq(32).text()],
+                [10,$tds.eq(33).text()],[11,$tds.eq(34).text()],[12,$tds.eq(35).text()]];
+
+                
+
+            var d4 = [[0,0],[1,$tds.eq(36).text()], [2,$tds.eq(37).text()], [3,$tds.eq(38).text()],
+                [4,$tds.eq(39).text()], [5,$tds.eq(40).text()],[6,$tds.eq(41).text()],
+                [7,$tds.eq(42).text()], [8,$tds.eq(43).text()],[9,$tds.eq(44).text()],
+                [10,$tds.eq(45).text()], [11,$tds.eq(46).text()], [12,$tds.eq(47).text()]];
+
+            var d5 = [[0,0],[1,$tds.eq(48).text()], [2,$tds.eq(49).text()], [3,$tds.eq(50).text()],
+                [4,$tds.eq(51).text()], [5,$tds.eq(52).text()],[6,$tds.eq(53).text()],
+                [7,$tds.eq(54).text()], [8,$tds.eq(55).text()],[9,$tds.eq(56).text()],
+                [10,$tds.eq(57).text()], [11,$tds.eq(58).text()], [12,$tds.eq(59).text()]];
+
+            var d6 = [[0,0],[1,$tds.eq(60).text()],[2,$tds.eq(61).text()],[3,$tds.eq(62).text()],
+                [4,$tds.eq(63).text()],[5,$tds.eq(64).text()],[6,$tds.eq(65).text()],
+                [7,$tds.eq(66).text()],[8,$tds.eq(67).text()],[9,$tds.eq(68).text()],
+                [10,$tds.eq(69).text()],[11,$tds.eq(70).text()],[12,$tds.eq(71).text()]];
+
+                
+
+            var d7 = [[0,0],[1,$tds.eq(72).text()], [2,$tds.eq(73).text()], [3,$tds.eq(74).text()],
+                [4,$tds.eq(75).text()], [5,$tds.eq(76).text()],[6,$tds.eq(77).text()],
+                [7,$tds.eq(78).text()], [8,$tds.eq(79).text()],[9,$tds.eq(80).text()],
+                [10,$tds.eq(81).text()], [11,$tds.eq(82).text()], [12,$tds.eq(83).text()]];
+
+            var d8 = [[0,0],[1,$tds.eq(84).text()], [2,$tds.eq(85).text()], [3,$tds.eq(86).text()],
+                [4,$tds.eq(87).text()], [5,$tds.eq(88).text()],[6,$tds.eq(89).text()],
+                [7,$tds.eq(90).text()], [8,$tds.eq(91).text()],[9,$tds.eq(92).text()],
+                [10,$tds.eq(93).text()], [11,$tds.eq(94).text()], [12,$tds.eq(95).text()]];
+
+            var d9 = [[0,0],[1,$tds.eq(96).text()],[2,$tds.eq(97).text()],[3,$tds.eq(98).text()],
+                [4,$tds.eq(99).text()],[5,$tds.eq(100).text()],[6,$tds.eq(101).text()],
+                [7,$tds.eq(102).text()],[8,$tds.eq(103).text()],[9,$tds.eq(104).text()],
+                [10,$tds.eq(105).text()],[11,$tds.eq(106).text()],[12,$tds.eq(107).text()]];
+
+
+                
+            var d10 = [[0,0],[1,$tds.eq(108).text()], [2,$tds.eq(109).text()], [3,$tds.eq(110).text()],
+                [4,$tds.eq(111).text()], [5,$tds.eq(112).text()],[6,$tds.eq(113).text()],
+                [7,$tds.eq(114).text()], [8,$tds.eq(115).text()],[9,$tds.eq(116).text()],
+                [10,$tds.eq(117).text()], [11,$tds.eq(118).text()], [12,$tds.eq(119).text()]];
+
+
+        
+            var plot1 = $.jqplot('chartdiv', [d1,d2,d3,d4,d5,d6,d7,d8,d9,d10], {
+                grid: {
+                    drawBorder: false,
+                    shadow: false,
+                },
+                highlighter: { show: true },
+                seriesDefaults: { 
+                    shadowAlpha: 0.1,
+                    shadowDepth: 2,
+                    fillToZero: true
+                },
+                series: [
+                    {
+                        color: '#ef4444',
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                        rendererOptions: {
+                                smooth: true
+                        }
+                    },
+                    {
+                        color: '#7a3b2e',
+                        rendererOptions: {
+                            smooth: true,
+                        },
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                    },
+                    {
+                        color: '#618685',
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                        rendererOptions: {
+                                smooth: true
+                        }
+                    },
+                    {
+                        color: '#7a3b2e',
+                        rendererOptions: {
+                            smooth: true,
+                        },
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                    },
+                    {
+                        color: '#009f75',
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                        rendererOptions: {
+                                smooth: true
+                        }
+                    },
+                    {
+                        color: '#622569',
+                        rendererOptions: {
+                            smooth: true,
+                        },
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                    },
+                    {
+                        color: '#b9936c',
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                        rendererOptions: {
+                                smooth: true
+                        }
+                    },
+                    {
+                        color: '#314ba0',
+                        rendererOptions: {
+                            smooth: true,
+                        },
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                    },
+                    {
+                        color: '#e3eaa7',
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                        rendererOptions: {
+                                smooth: true
+                        }
+                    },
+                    {
+                        color: '#eca1a6',
+                        rendererOptions: {
+                            smooth: true,
+                        },
+                        markerOptions: {
+                            style: 'filledCircle',
+                            size: 5,
+                            color:'#eaeaea'
+                        },
+                    }
+                ],
+                axes: {
+                    yaxis: {
+                        // padding of 0 or of 1 produce same results, range 
+                        // is multiplied by 1x, so it is not padded.
+                        pad: 1.0,
+                        min: 0,
+                        numberTicks: 5,
+                        max: 20,
+                        label: 'Yield',
+                        tickOptions: {
+                            showGridline: true
+                        }
+                    },
+                    xaxis: {
+                        pad: 1.0,
+                        tickOptions: {
+                            showGridline: false
+                        },
+                        label: 'Months',
+                        min: 0,
+                        max: 15,
+                        ticks: [[0,''],[1,'Jan'],[2,'Feb'],[3,'Mar'],[4,'Apr'],[5,'May'],[6,'Jun'],[7,'Jul'],[8,'Aug'],[9,'Sep'],[10,'Oct'],[11,'Nov'],[12,'Dec']]
+                    }
+                }
+            });
+        </script>
+    </body>
+
+</html>
