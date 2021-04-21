@@ -1,3 +1,5 @@
-# vigeo
+# Vigeo
 
-Compilation of 10 companies showing the company stock yield in both tabular and graphical forms
+Tabular and Graphical representation of top 10 company stock yield using JQuery
+
+Preview site [here](https://citiserve-test.netlify.app)
